@@ -1,0 +1,53 @@
+html, body{
+  padding: 0px;
+  margin: 0px;
+}
+
+body{
+  background: #ececed;
+}
+
+ul{
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+#art-list li{
+  margin-bottom: -200px;
+  transition: all .2s ease-in-out;
+  border-radius: 10px 10px 10px 10px;
+  overflow: hidden;
+  width: 300px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+#art-list li .details{
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 200px;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  color: white;
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+#art-list li.first-art{
+  margin-top: 0px
+}
+
+#art-list li.hover{
+  margin-bottom: -30px;
+  width: 600px;
+  height: 600px;
+}
+
+#myVideo{
+
+}

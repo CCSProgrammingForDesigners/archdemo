@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="tracking-min.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <ul id="art-list">
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <video id="myVideo" width="100%" height="100%" preload autoplay loop muted></video>
+
+    <script type="text/javascript">
+
+      function removeHovers(){
+        var els = document.querySelectorAll('.hover')
+        for (activeElement of els){
+            activeElement.classList.remove("hover")
+        }
+      }
+
+      window.onload = function() {
+
+
+        const artList = [
+          {"path": "art/16.PH.hndrs1 copy.jpg", "title": "Art work title", "slug": "a1", "descrption": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."},
+          {"path": "art/16.PH.hndrs2 copy.jpg", "title": "Art work title", "slug": "a2", "descrption": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."},
+          {"path": "art/17.FN.frohm.jpg", "title": "Art work title", "slug": "a3", "descrption": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."},
+          {"path": "art/17.PH.hndrs1 copy.jpg", "title": "Art work title", "slug": "a4", "descrption": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."},
+          {"path": "art/17.PH.trny1 copy.jpg", "title": "Art work title", "slug": "a5", "descrption": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."},
+          {"path": "art/EA_Begeman_J_1.jpg", "title": "Art work title", "slug": "a6", "descrption": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."},
+          {"path": "art/EA_Law_D_1.jpg", "title": "Art work title", "slug": "a7", "descrption": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."},
+          {"path": "art/EA_Tanaka_L.jpg", "title": "Art work title", "slug": "a8", "descrption": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."},
+          {"path": "art/FA_Slade_T_3 copy.jpg", "title": "Art work title", "slug": "a9", "descrption": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."},
+          {"path": "art/FA_Trichler_S_1 copy.jpg", "title": "Art work title", "slug": "a10", "descrption": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."},
+          {"path": "art/FA_Worsley_H_1 copy.jpg", "title": "Art work title", "slug": "a11", "descrption": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."},
+          {"path": "art/FAD_Hosseini_S_1.jpg", "title": "Art work title", "slug": "a12", "descrption": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."},
+          {"path": "art/IL_Beebly_O_2.jpg", "title": "Art work title", "slug": "a13", "descrption": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."},
+          {"path": "art/IL_Fontana_J_1.jpg", "title": "Art work title", "slug": "a14", "descrption": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."},
+          {"path": "art/IL_Nyquist__1.jpg", "title": "Art work title", "slug": "a15", "descrption": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."},
+          {"path": "art/MFA_CMD_Zhang_Y_5 copy.jpg", "title": "Art work title", "slug": "a16", "descrption": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."},
+          {"path": "art/MFA-IXD_Jog_R_1sm copy.jpg", "title": "Art work title", "slug": "a17", "descrption": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."},
+          {"path": "art/MFA-TR_Shi_E_1 copy.jpg", "title": "Art work title", "slug": "a18", "descrption": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."},
+          {"path": "art/PCS_Barker_R_3 copy.jpg", "title": "Art work title", "slug": "a19", "descrption": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."},
+          {"path": "art/PCS_Canzano_M_2 copy.jpg", "title": "Art work title", "slug": "a20", "descrption": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."},
+          {"path": "art/Young-Joon Suh VW Front Quarter copy.jpg", "title": "Art work title", "slug": "a21", "descrption": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."},
+        ]
+
+        const artUnorderedlist = document.getElementById('art-list')
+
+        for(art of artList){
+          console.log(art)
+          let artItem = `
+          <li id="${art.slug}" style="background-image: url('${art.path}')">
+            <div class="details">
+              <h2>${art.title}</h2>
+              <p>${art.descrption}</p>
+            </div>
+          </li>
+          `
+          artUnorderedlist.insertAdjacentHTML('beforeend', artItem);
+        }
+
+        var colors = new tracking.ColorTracker(['yellow']);
+
+        colors.on('track', function(event) {
+          if (event.data.length === 0) {
+            // No colors were detected in this frame.
+            removeHovers();
+            console.log("nothing found")
+          } else {
+            event.data.forEach(function(rect) {
+              //rect.x, rect.y, rect.height, rect.width, rect.color
+              var intViewportWidth = window.innerWidth;
+              console.log(rect.y)
+              let element;
+              switch (true) {
+                case (rect.y < 100 ):
+                  console.log("a1")
+                  removeHovers();
+                  element = document.getElementById('a1').classList.add("hover")
+                  break;
+                case (rect.y < 200):
+                  console.log("a2")
+                  removeHovers();
+                  element = document.getElementById('a2').classList.add("hover")
+                   break;
+                case (rect.y < 300):
+                   console.log("a3")
+                   removeHovers();
+                   element = document.getElementById('a3').classList.add("hover")
+                   break;
+                case (rect.y < 400):
+                   console.log("a3")
+                   removeHovers();
+                   element = document.getElementById('a4').classList.add("hover")
+                   break;
+                case (rect.y < 500):
+                   console.log("a4")
+                   removeHovers();
+                   element = document.getElementById('a5').classList.add("hover")
+                   break;
+                case (rect.y < 600):
+                   console.log("a5")
+                   removeHovers();
+                   element = document.getElementById('a6').classList.add("hover")
+                   break;
+              }
+
+
+              //let element = document.elementFromPoint(intViewportWidth/2, rect.y * 1.5);
+
+              // if (element && element.nodeName === "LI"){
+              //   console.log(element.nodeName)
+              //   var els = document.querySelectorAll('.hover')
+              //   for (activeElement of els){
+              //     if(element !== activeElement){
+              //       activeElement.classList.remove("hover")
+              //     }
+              //   }
+              //
+              //   element.classList.add("hover")
+              //   console.log(rect.y)
+              // }
+            });
+          }
+        });
+
+        tracking.track('#myVideo', colors, { camera: true });
+      };
+    </script>
+
+  </body>
+</html>
